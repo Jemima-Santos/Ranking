@@ -1,5 +1,14 @@
 import os
-
+''''
+Autor: Jemima Santos da Silva
+Componente Curricular: Algoritmos I
+Concluído em: 14/09/2024
+Declaro que este código foi elaborado por mim de forma individual e não contém nenhum
+trecho de código de outro colega ou de outro autor, tais como provindos de livros e
+apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
+de outra autoria que não a minha está destacado com uma citação para o autor e a fonte
+do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
+'''
 
 #imprimindo cabeçalho
 print("==============================================================")
@@ -10,14 +19,16 @@ print("==============================================================")
 print("\n")
 print("\n")
 print("\n")
-os.system('cls')        
 
+# Limpa o terminal para iniciar a exibição do menu
+os.system('cls')         
 
 # Inicializar a variável menu
-menu = 0
+menu = 0  
+
+# Loop do menu principal até que o usuário escolha a opção de sair e exibição do menu
 while menu != 6:
-#Exibição do menu
-    os.system('cls')    
+    os.system('cls')  
     print("--------------------------------------------------------------")
     print("                           MENU                              ")
     print("--------------------------------------------------------------")
@@ -28,40 +39,93 @@ while menu != 6:
     print("5 - Ver pontuação de cada equipe")
     print("6 - Sair")
     print("--------------------------------------------------------------")
+
+# Solicita ao usuário uma opção do menu
     menu = int(input("Escolha uma opção: "))
-    os.system('cls')  
+    os.system('cls') 
 
+# Se o menu for 1, o usuário irá inserir os pesos das questões
     if menu == 1:
-#Inputs do peso pelo usuário
-        os.system('cls')        
-        pesoFaceis = int(input("Digite o peso das questões fáceis: "))
-        pesoMedias = int(input("Digite o peso das questões médias: "))
-        pesoDificeis = int(input("Digite o peso das questões difíceis: "))
-        print("\nPesos inseridos com sucesso!\n")
-        input("Pressione Enter para voltar ao menu...")
-        os.system('cls')  
+    # input dos pesos com validação para ser maior que 0
 
-#Definindo o nome das equipes
+        os.system('cls') 
+        pesoFaceis = int(input("Digite o peso das questões fáceis: ")) 
+        if (pesoFaceis <= 0):
+            while pesoFaceis <= 0:
+                print("\nValor invalido! \nDigite novamente!\n")
+                pesoFaceis = int(input("Digite o peso das questões fáceis: "))
+                print("\n")
+
+        pesoMedias = int(input("Digite o peso das questões médias: ")) 
+        if (pesoMedias <= 0):
+            while pesoMedias <= 0:
+                print("\nValor invalido! \nDigite novamente!\n")
+                pesoMedias = int(input("Digite o peso das questões médias: "))
+                print("\n")
+
+        pesoDificeis = int(input("Digite o peso das questões difíceis: ")) 
+        if (pesoDificeis <= 0):
+            while pesoDificeis <= 0:
+                print("\nValor invalido! \nDigite novamente!\n")
+                pesoDificeis = int(input("Digite o peso das questões difíceis: "))
+                print("\n")
+
+        print("\nPesos inseridos com sucesso!\n")
+        # Pausa para o usuário ler a mensagem
+        input("Pressione Enter para voltar ao menu...")  
+        os.system('cls')
+
+# Se o menu for 2, o usuário irá inserir o nome das equipes
     elif menu == 2:
-        os.system('cls')  
+        os.system('cls')
+    # Se o nome da equipe for vazio, atribui um nome padrão
         grupo1 = input("Digite o nome da equipe 1: ")
+        if grupo1 == "":  
+            grupo1 = "A"
+
         grupo2 = input("Digite o nome da equipe 2: ")
+        if grupo2 == "":
+            grupo2 = "B"
+
         grupo3 = input("Digite o nome da equipe 3: ")
+        if grupo3 == "":
+            grupo3 = "C"
+
         grupo4 = input("Digite o nome da equipe 4: ")
+        if grupo4 == "":
+            grupo4 = "D"
+
         grupo5 = input("Digite o nome da equipe 5: ")
+        if grupo5 == "":
+            grupo5 = "E"
+
+        #Exibindo o nome das equipes
+        os.system('cls')  
+        print(f"O nome da equipe 1 ficou como: {grupo1}")
+        print(f"O nome da equipe 2 ficou como: {grupo2}")
+        print(f"O nome da equipe 3 ficou como: {grupo3}")
+        print(f"O nome da equipe 4 ficou como: {grupo4}")
+        print(f"O nome da equipe 5 ficou como: {grupo5}")
+        print("\n")
+
+        #Voltando ao menu
         print("\nNome das equipes inseridas com sucesso!\n")
         input("Pressione Enter para voltar ao menu...")
-        os.system('cls')  
+        os.system('cls')
 
+# Se o menu for 3, o usuário irá inserir as respostas das equipes
     elif menu == 3:
+        os.system('cls')
+        # Recebe os valores de acertos e tempo das equipes 
+
         #Equipe 1
-        os.system('cls')    
         faceis1 = int(input("Digite quantas questões fáceis o grupo 1 acertou: "))
         medias1 = int(input("Digite quantas questões médias o grupo 1 acertou: "))
         dificeis1 = int(input("Digite quantas questões difíceis o grupo 1 acertou: "))
         tempo1 = int(input("Digite em minutos quanto tempo a equipe demorou para terminar: "))
+        # Calcula a pontuação total da equipe 1
         totalPontos1 = faceis1 * pesoFaceis + medias1 * pesoMedias + dificeis1 * pesoDificeis
-        os.system('cls')  
+        os.system('cls')
 
         #Equipe 2
         faceis2 = int(input("Digite quantas questões fáceis o grupo 2 acertou: "))
@@ -69,7 +133,7 @@ while menu != 6:
         dificeis2 = int(input("Digite quantas questões difíceis o grupo 2 acertou: "))
         tempo2 = int(input("Digite em minutos quanto tempo a equipe demorou para terminar: "))
         totalPontos2 = faceis2 * pesoFaceis + medias2 * pesoMedias + dificeis2 * pesoDificeis
-        os.system('cls')  
+        os.system('cls')
 
         #Equipe 3
         faceis3 = int(input("Digite quantas questões fáceis o grupo 3 acertou: "))
@@ -77,7 +141,7 @@ while menu != 6:
         dificeis3 = int(input("Digite quantas questões difíceis o grupo 3 acertou: "))
         tempo3 = int(input("Digite em minutos quanto tempo a equipe demorou para terminar: "))
         totalPontos3 = faceis3 * pesoFaceis + medias3 * pesoMedias + dificeis3 * pesoDificeis
-        os.system('cls')  
+        os.system('cls')
 
         #Equipe 4
         faceis4 = int(input("Digite quantas questões fáceis o grupo 4 acertou: "))
@@ -85,7 +149,7 @@ while menu != 6:
         dificeis4 = int(input("Digite quantas questões difíceis o grupo 4 acertou: "))
         tempo4 = int(input("Digite em minutos quanto tempo a equipe demorou para terminar: "))
         totalPontos4 = faceis4 * pesoFaceis + medias4 * pesoMedias + dificeis4 * pesoDificeis
-        os.system('cls')  
+        os.system('cls')
 
         #Equipe 5
         faceis5 = int(input("Digite quantas questões fáceis o grupo 5 acertou: "))
@@ -93,765 +157,95 @@ while menu != 6:
         dificeis5 = int(input("Digite quantas questões difíceis o grupo 5 acertou: "))
         tempo5 = int(input("Digite em minutos quanto tempo a equipe demorou para terminar: "))
         totalPontos5 = faceis5 * pesoFaceis + medias5 * pesoMedias + dificeis5 * pesoDificeis
-        os.system('cls')  
+        os.system('cls') 
+
         print("\nRespostas das equipes inseridas com sucesso!\n")
+        # Pausa para o usuário ler a mensagem
         input("Pressione Enter para voltar ao menu...")
-        os.system('cls')  
-    
-    elif menu == 4:
-        os.system('cls')
-        # Verificando empates no primeiro lugar
-        if totalPontos1 == totalPontos2 == totalPontos3 == totalPontos4 == totalPontos5:
-            if tempo1 < tempo2 and tempo1 < tempo3 and tempo1 < tempo4 and tempo1 < tempo5:
-                primeiro = grupo1
-            elif tempo2 < tempo1 and tempo2 < tempo3 and tempo2 < tempo4 and tempo2 < tempo5:
-                primeiro = grupo2
-            elif tempo3 < tempo1 and tempo3 < tempo2 and tempo3 < tempo4 and tempo3 < tempo5:
-                primeiro = grupo3
-            elif tempo4 < tempo1 and tempo4 < tempo2 and tempo4 < tempo3 and tempo4 < tempo5:
-                primeiro = grupo4
-            else:
-                primeiro = grupo5
-        elif totalPontos1 == totalPontos2:
-            if tempo1 < tempo2:
-                primeiro = grupo1
-            elif tempo2 < tempo1:
-                primeiro = grupo2
-            else:
-                if dificeis1 < dificeis2:
-                    primeiro = grupo1
-                elif dificeis2 < dificeis1:
-                    primeiro = grupo2
-                else:
-                    primeiro = grupo1  # ou grupo2, se preferir
+        os.system('cls') 
+
+# Verificando empate e criando o ranking
+# Comparando e ordenando os grupos com base nos critérios especificados
+if menu == 4:
+    # Primeiro, compara o grupo 1 com o grupo 2
+    if totalPontos1 < totalPontos2 or (totalPontos1 == totalPontos2 and dificeis1 < dificeis2) or (totalPontos1 == totalPontos2 and dificeis1 == dificeis2 and tempo1 > tempo2):
+        # Se o grupo 1 tem menos pontos que o grupo 2, ou
+        # Se ambos os grupos têm o mesmo número de pontos, mas o grupo 1 tem menos questões difíceis resolvidas, ou
+        # Se ambos os grupos têm o mesmo número de pontos e questões difíceis, mas o grupo 1 gastou mais tempo, então
+        # Troca os valores entre grupo 1 e grupo 2 para manter a ordem correta.
+        totalPontos1, totalPontos2 = totalPontos2, totalPontos1
+        grupo1, grupo2 = grupo2, grupo1
+        tempo1, tempo2 = tempo2, tempo1
+        faceis1, faceis2 = faceis2, faceis1
+        medias1, medias2 = medias2, medias1
+        dificeis1, dificeis2 = dificeis2, dificeis1
+
+    # Em seguida, compara o grupo 2 com o grupo 3
+    if totalPontos2 < totalPontos3 or (totalPontos2 == totalPontos3 and dificeis2 < dificeis3) or (totalPontos2 == totalPontos3 and dificeis2 == dificeis3 and tempo2 > tempo3):
+        # Se o grupo 2 tem menos pontos que o grupo 3, ou
+        # Se ambos os grupos têm o mesmo número de pontos, mas o grupo 2 tem menos questões difíceis resolvidas, ou
+        # Se ambos os grupos têm o mesmo número de pontos e questões difíceis, mas o grupo 2 gastou mais tempo, então
+        # Troca os valores entre grupo 2 e grupo 3 para manter a ordem correta.
+        totalPontos2, totalPontos3 = totalPontos3, totalPontos2
+        grupo2, grupo3 = grupo3, grupo2
+        tempo2, tempo3 = tempo3, tempo2
+        faceis2, faceis3 = faceis3, faceis2
+        medias2, medias3 = medias3, medias2
+        dificeis2, dificeis3 = dificeis3, dificeis2
+
+    # Agora, compara o grupo 3 com o grupo 4
+    if totalPontos3 < totalPontos4 or (totalPontos3 == totalPontos4 and dificeis3 < dificeis4) or (totalPontos3 == totalPontos4 and dificeis3 == dificeis4 and tempo3 > tempo4):
+        # Se o grupo 3 tem menos pontos que o grupo 4, ou
+        # Se ambos os grupos têm o mesmo número de pontos, mas o grupo 3 tem menos questões difíceis resolvidas, ou
+        # Se ambos os grupos têm o mesmo número de pontos e questões difíceis, mas o grupo 3 gastou mais tempo, então
+        # Troca os valores entre grupo 3 e grupo 4 para manter a ordem correta.
+        totalPontos3, totalPontos4 = totalPontos4, totalPontos3
+        grupo3, grupo4 = grupo4, grupo3
+        tempo3, tempo4 = tempo4, tempo3
+        faceis3, faceis4 = faceis4, faceis3
+        medias3, medias4 = medias4, medias3
+        dificeis3, dificeis4 = dificeis4, dificeis3
+
+    # Finalmente, compara o grupo 4 com o grupo 5
+    if totalPontos4 < totalPontos5 or (totalPontos4 == totalPontos5 and dificeis4 < dificeis5) or (totalPontos4 == totalPontos5 and dificeis4 == dificeis5 and tempo4 > tempo5):
+        # Se o grupo 4 tem menos pontos que o grupo 5, ou
+        # Se ambos os grupos têm o mesmo número de pontos, mas o grupo 4 tem menos questões difíceis resolvidas, ou
+        # Se ambos os grupos têm o mesmo número de pontos e questões difíceis, mas o grupo 4 gastou mais tempo, então
+        # Troca os valores entre grupo 4 e grupo 5 para manter a ordem correta.
+        totalPontos4, totalPontos5 = totalPontos5, totalPontos4
+        grupo4, grupo5 = grupo5, grupo4
+        tempo4, tempo5 = tempo5, tempo4
+        faceis4, faceis5 = faceis5, faceis4
+        medias4, medias5 = medias5, medias4
+        dificeis4, dificeis5 = dificeis5, dificeis4
+
+        # Associando os grupos ordenados ao ranking final
         
-        elif totalPontos1 == totalPontos3:
-            if tempo1 < tempo3:
-                primeiro = grupo1
-            elif tempo3 < tempo1:
-                primeiro = grupo3
-            else:
-                if dificeis1 < dificeis3:
-                    primeiro = grupo1
-                elif dificeis3 < dificeis1:
-                    primeiro = grupo3
-                else:
-                    primeiro = grupo1  # ou grupo3, se preferir
-        
-        elif totalPontos2 == totalPontos3:
-            if tempo2 < tempo3:
-                primeiro = grupo2
-            elif tempo3 < tempo2:
-                primeiro = grupo3
-            else:
-                if dificeis2 < dificeis3:
-                    primeiro = grupo2
-                elif dificeis3 < dificeis2:
-                    primeiro = grupo3
-                else:
-                    primeiro = grupo2  # ou grupo3, se preferir
-        
-        elif totalPontos1 == totalPontos4:
-            if tempo1 < tempo4:
-                primeiro = grupo1
-            elif tempo4 < tempo1:
-                primeiro = grupo4
-            else:
-                if dificeis1 < dificeis4:
-                    primeiro = grupo1
-                elif dificeis4 < dificeis1:
-                    primeiro = grupo4
-                else:
-                    primeiro = grupo1  # ou grupo4, se preferir
+        # Após ordenar os grupos com base nos critérios especificados,
+        # este bloco de código é responsável por associar os grupos
+        # classificados às suas respectivas posições no ranking final.
 
-        elif totalPontos2 == totalPontos4:
-            if tempo2 < tempo4:
-                primeiro = grupo2
-            elif tempo4 < tempo2:
-                primeiro = grupo4
-            else:
-                if dificeis2 < dificeis4:
-                    primeiro = grupo2
-                elif dificeis4 < dificeis2:
-                    primeiro = grupo4
-                else:
-                    primeiro = grupo2  # ou grupo4, se preferir
-        
-        elif totalPontos3 == totalPontos4:
-            if tempo3 < tempo4:
-                primeiro = grupo3
-            elif tempo4 < tempo3:
-                primeiro = grupo4
-            else:
-                if dificeis3 < dificeis4:
-                    primeiro = grupo3
-                elif dificeis4 < dificeis3:
-                    primeiro = grupo4
-                else:
-                    primeiro = grupo3  # ou grupo4, se preferir
+        # Atribuindo os grupos classificados às suas posições no ranking.
+        primeiro = grupo1
+        segundo = grupo2
+        terceiro = grupo3
+        quarto = grupo4
+        quinto = grupo5
 
-        # Determinando o segundo lugar após desempate do primeiro
-        if primeiro == grupo1:
-            # Considerar os restantes
-            if totalPontos2 > totalPontos3 and totalPontos2 > totalPontos4 and totalPontos2 > totalPontos5:
-                segundo = grupo2
-            elif totalPontos3 > totalPontos2 and totalPontos3 > totalPontos4 and totalPontos3 > totalPontos5:
-                segundo = grupo3
-            elif totalPontos4 > totalPontos2 and totalPontos4 > totalPontos3 and totalPontos4 > totalPontos5:
-                segundo = grupo4
-            else:
-                segundo = grupo5
-            
-            # Verificando empates no segundo lugar
-            if totalPontos2 == totalPontos3:
-                if tempo2 < tempo3:
-                    segundo = grupo2
-                elif tempo3 < tempo2:
-                    segundo = grupo3
-                else:
-                    if dificeis2 < dificeis3:
-                        segundo = grupo2
-                    elif dificeis3 < dificeis2:
-                        segundo = grupo3
-                    else:
-                        segundo = grupo2  # ou grupo3, se preferir
-            
-            elif totalPontos2 == totalPontos4:
-                if tempo2 < tempo4:
-                    segundo = grupo2
-                elif tempo4 < tempo2:
-                    segundo = grupo4
-                else:
-                    if dificeis2 < dificeis4:
-                        segundo = grupo2
-                    elif dificeis4 < dificeis2:
-                        segundo = grupo4
-                    else:
-                        segundo = grupo2  # ou grupo4, se preferir
+        # Atribuindo os pontos totais correspondentes aos grupos
+        # classificados às suas posições no ranking.
+        totalPontosPrimeiro = totalPontos1
+        totalPontosSegundo = totalPontos2
+        totalPontosTerceiro = totalPontos3
+        totalPontosQuarto = totalPontos4
+        totalPontosQuinto = totalPontos5
 
-            elif totalPontos3 == totalPontos4:
-                if tempo3 < tempo4:
-                    segundo = grupo3
-                elif tempo4 < tempo3:
-                    segundo = grupo4
-                else:
-                    if dificeis3 < dificeis4:
-                        segundo = grupo3
-                    elif dificeis4 < dificeis3:
-                        segundo = grupo4
-                    else:
-                        segundo = grupo3  # ou grupo4, se preferir
+        tempoPrimeiro = tempo1
+        tempoSegundo = tempo2
+        tempoTerceiro = tempo3
+        tempoQuarto= tempo4
+        tempoQuinto = tempo5
 
-        elif primeiro == grupo2:
-            # Considerar os restantes
-            if totalPontos1 > totalPontos3 and totalPontos1 > totalPontos4 and totalPontos1 > totalPontos5:
-                segundo = grupo1
-            elif totalPontos3 > totalPontos1 and totalPontos3 > totalPontos4 and totalPontos3 > totalPontos5:
-                segundo = grupo3
-            elif totalPontos4 > totalPontos1 and totalPontos4 > totalPontos3 and totalPontos4 > totalPontos5:
-                segundo = grupo4
-            else:
-                segundo = grupo5
-            
-            # Verificando empates no segundo lugar
-            if totalPontos1 == totalPontos3:
-                if tempo1 < tempo3:
-                    segundo = grupo1
-                elif tempo3 < tempo1:
-                    segundo = grupo3
-                else:
-                    if dificeis1 < dificeis3:
-                        segundo = grupo1
-                    elif dificeis3 < dificeis1:
-                        segundo = grupo3
-                    else:
-                        segundo = grupo1  # ou grupo3, se preferir
-            
-            elif totalPontos1 == totalPontos4:
-                if tempo1 < tempo4:
-                    segundo = grupo1
-                elif tempo4 < tempo1:
-                    segundo = grupo4
-                else:
-                    if dificeis1 < dificeis4:
-                        segundo = grupo1
-                    elif dificeis4 < dificeis1:
-                        segundo = grupo4
-                    else:
-                        segundo = grupo1  # ou grupo4, se preferir
-            
-            elif totalPontos3 == totalPontos4:
-                if tempo3 < tempo4:
-                    segundo = grupo3
-                elif tempo4 < tempo3:
-                    segundo = grupo4
-                else:
-                    if dificeis3 < dificeis4:
-                        segundo = grupo3
-                    elif dificeis4 < dificeis3:
-                        segundo = grupo4
-                    else:
-                        segundo = grupo3  # ou grupo4, se preferir
-
-        elif primeiro == grupo3:
-            # Considerar os restantes
-            if totalPontos1 > totalPontos2 and totalPontos1 > totalPontos4 and totalPontos1 > totalPontos5:
-                segundo = grupo1
-            elif totalPontos2 > totalPontos1 and totalPontos2 > totalPontos4 and totalPontos2 > totalPontos5:
-                segundo = grupo2
-            elif totalPontos4 > totalPontos1 and totalPontos4 > totalPontos2 and totalPontos4 > totalPontos5:
-                segundo = grupo4
-            else:
-                segundo = grupo5
-            
-            # Verificando empates no segundo lugar
-            if totalPontos1 == totalPontos2:
-                if tempo1 < tempo2:
-                    segundo = grupo1
-                elif tempo2 < tempo1:
-                    segundo = grupo2
-                else:
-                    if dificeis1 < dificeis2:
-                        segundo = grupo1
-                    elif dificeis2 < dificeis1:
-                        segundo = grupo2
-                    else:
-                        segundo = grupo1  # ou grupo2, se preferir
-            
-            elif totalPontos1 == totalPontos4:
-                if tempo1 < tempo4:
-                    segundo = grupo1
-                elif tempo4 < tempo1:
-                    segundo = grupo4
-                else:
-                    if dificeis1 < dificeis4:
-                        segundo = grupo1
-                    elif dificeis4 < dificeis1:
-                        segundo = grupo4
-                    else:
-                        segundo = grupo1  # ou grupo4, se preferir
-            
-            elif totalPontos2 == totalPontos4:
-                if tempo2 < tempo4:
-                    segundo = grupo2
-                elif tempo4 < tempo2:
-                    segundo = grupo4
-                else:
-                    if dificeis2 < dificeis4:
-                        segundo = grupo2
-                    elif dificeis4 < dificeis2:
-                        segundo = grupo4
-                    else:
-                        segundo = grupo2  # ou grupo4, se preferir
-
-        elif primeiro == grupo4:
-            # Considerar os restantes
-            if totalPontos1 > totalPontos2 and totalPontos1 > totalPontos3 and totalPontos1 > totalPontos5:
-                segundo = grupo1
-            elif totalPontos2 > totalPontos1 and totalPontos2 > totalPontos3 and totalPontos2 > totalPontos5:
-                segundo = grupo2
-            elif totalPontos3 > totalPontos1 and totalPontos3 > totalPontos2 and totalPontos3 > totalPontos5:
-                segundo = grupo3
-            else:
-                segundo = grupo5
-            
-            # Verificando empates no segundo lugar
-            if totalPontos1 == totalPontos2:
-                if tempo1 < tempo2:
-                    segundo = grupo1
-                elif tempo2 < tempo1:
-                    segundo = grupo2
-                else:
-                    if dificeis1 < dificeis2:
-                        segundo = grupo1
-                    elif dificeis2 < dificeis1:
-                        segundo = grupo2
-                    else:
-                        segundo = grupo1  # ou grupo2, se preferir
-            
-            elif totalPontos1 == totalPontos3:
-                if tempo1 < tempo3:
-                    segundo = grupo1
-                elif tempo3 < tempo1:
-                    segundo = grupo3
-                else:
-                    if dificeis1 < dificeis3:
-                        segundo = grupo1
-                    elif dificeis3 < dificeis1:
-                        segundo = grupo3
-                    else:
-                        segundo = grupo1  # ou grupo3, se preferir
-            
-            elif totalPontos2 == totalPontos3:
-                if tempo2 < tempo3:
-                    segundo = grupo2
-                elif tempo3 < tempo2:
-                    segundo = grupo3
-                else:
-                    if dificeis2 < dificeis3:
-                        segundo = grupo2
-                    elif dificeis3 < dificeis2:
-                        segundo = grupo3
-                    else:
-                        segundo = grupo2  # ou grupo3, se preferir
-
-        # Determinando o terceiro lugar após desempate do primeiro e segundo
-        if primeiro == grupo1 and segundo == grupo2:
-            if totalPontos3 > totalPontos4 and totalPontos3 > totalPontos5:
-                terceiro = grupo3
-            elif totalPontos4 > totalPontos3 and totalPontos4 > totalPontos5:
-                terceiro = grupo4
-            else:
-                terceiro = grupo5
-            
-            # Verificando empates no terceiro lugar
-            if totalPontos3 == totalPontos4:
-                if tempo3 < tempo4:
-                    terceiro = grupo3
-                elif tempo4 < tempo3:
-                    terceiro = grupo4
-                else:
-                    if dificeis3 < dificeis4:
-                        terceiro = grupo3
-                    elif dificeis4 < dificeis3:
-                        terceiro = grupo4
-                    else:
-                        terceiro = grupo3  # ou grupo4, se preferir
-            
-            elif totalPontos3 == totalPontos5:
-                if tempo3 < tempo5:
-                    terceiro = grupo3
-                elif tempo5 < tempo3:
-                    terceiro = grupo5
-                else:
-                    if dificeis3 < dificeis5:
-                        terceiro = grupo3
-                    elif dificeis5 < dificeis3:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo3  # ou grupo5, se preferir
-            
-            elif totalPontos4 == totalPontos5:
-                if tempo4 < tempo5:
-                    terceiro = grupo4
-                elif tempo5 < tempo4:
-                    terceiro = grupo5
-                else:
-                    if dificeis4 < dificeis5:
-                        terceiro = grupo4
-                    elif dificeis5 < dificeis4:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo4  # ou grupo5, se preferir
-
-        elif primeiro == grupo1 and segundo == grupo3:
-            if totalPontos2 > totalPontos4 and totalPontos2 > totalPontos5:
-                terceiro = grupo2
-            elif totalPontos4 > totalPontos2 and totalPontos4 > totalPontos5:
-                terceiro = grupo4
-            else:
-                terceiro = grupo5
-            
-            # Verificando empates no terceiro lugar
-            if totalPontos2 == totalPontos4:
-                if tempo2 < tempo4:
-                    terceiro = grupo2
-                elif tempo4 < tempo2:
-                    terceiro = grupo4
-                else:
-                    if dificeis2 < dificeis4:
-                        terceiro = grupo2
-                    elif dificeis4 < dificeis2:
-                        terceiro = grupo4
-                    else:
-                        terceiro = grupo2  # ou grupo4, se preferir
-            
-            elif totalPontos2 == totalPontos5:
-                if tempo2 < tempo5:
-                    terceiro = grupo2
-                elif tempo5 < tempo2:
-                    terceiro = grupo5
-                else:
-                    if dificeis2 < dificeis5:
-                        terceiro = grupo2
-                    elif dificeis5 < dificeis2:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo2  # ou grupo5, se preferir
-            
-            elif totalPontos4 == totalPontos5:
-                if tempo4 < tempo5:
-                    terceiro = grupo4
-                elif tempo5 < tempo4:
-                    terceiro = grupo5
-                else:
-                    if dificeis4 < dificeis5:
-                        terceiro = grupo4
-                    elif dificeis5 < dificeis4:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo4  # ou grupo5, se preferir
-
-        elif primeiro == grupo1 and segundo == grupo4:
-            if totalPontos2 > totalPontos3 and totalPontos2 > totalPontos5:
-                terceiro = grupo2
-            elif totalPontos3 > totalPontos2 and totalPontos3 > totalPontos5:
-                terceiro = grupo3
-            else:
-                terceiro = grupo5
-            
-            # Verificando empates no terceiro lugar
-            if totalPontos2 == totalPontos3:
-                if tempo2 < tempo3:
-                    terceiro = grupo2
-                elif tempo3 < tempo2:
-                    terceiro = grupo3
-                else:
-                    if dificeis2 < dificeis3:
-                        terceiro = grupo2
-                    elif dificeis3 < dificeis2:
-                        terceiro = grupo3
-                    else:
-                        terceiro = grupo2  # ou grupo3, se preferir
-            
-            elif totalPontos2 == totalPontos5:
-                if tempo2 < tempo5:
-                    terceiro = grupo2
-                elif tempo5 < tempo2:
-                    terceiro = grupo5
-                else:
-                    if dificeis2 < dificeis5:
-                        terceiro = grupo2
-                    elif dificeis5 < dificeis2:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo2  # ou grupo5, se preferir
-            
-            elif totalPontos3 == totalPontos5:
-                if tempo3 < tempo5:
-                    terceiro = grupo3
-                elif tempo5 < tempo3:
-                    terceiro = grupo5
-                else:
-                    if dificeis3 < dificeis5:
-                        terceiro = grupo3
-                    elif dificeis5 < dificeis3:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo3  # ou grupo5, se preferir
-
-        elif primeiro == grupo2 and segundo == grupo3:
-            if totalPontos1 > totalPontos4 and totalPontos1 > totalPontos5:
-                terceiro = grupo1
-            elif totalPontos4 > totalPontos1 and totalPontos4 > totalPontos5:
-                terceiro = grupo4
-            else:
-                terceiro = grupo5
-            
-            # Verificando empates no terceiro lugar
-            if totalPontos1 == totalPontos4:
-                if tempo1 < tempo4:
-                    terceiro = grupo1
-                elif tempo4 < tempo1:
-                    terceiro = grupo4
-                else:
-                    if dificeis1 < dificeis4:
-                        terceiro = grupo1
-                    elif dificeis4 < dificeis1:
-                        terceiro = grupo4
-                    else:
-                        terceiro = grupo1  # ou grupo4, se preferir
-            
-            elif totalPontos1 == totalPontos5:
-                if tempo1 < tempo5:
-                    terceiro = grupo1
-                elif tempo5 < tempo1:
-                    terceiro = grupo5
-                else:
-                    if dificeis1 < dificeis5:
-                        terceiro = grupo1
-                    elif dificeis5 < dificeis1:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo1  # ou grupo5, se preferir
-            
-            elif totalPontos4 == totalPontos5:
-                if tempo4 < tempo5:
-                    terceiro = grupo4
-                elif tempo5 < tempo4:
-                    terceiro = grupo5
-                else:
-                    if dificeis4 < dificeis5:
-                        terceiro = grupo4
-                    elif dificeis5 < dificeis4:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo4  # ou grupo5, se preferir
-
-        elif primeiro == grupo2 and segundo == grupo4:
-            if totalPontos1 > totalPontos3 and totalPontos1 > totalPontos5:
-                terceiro = grupo1
-            elif totalPontos3 > totalPontos1 and totalPontos3 > totalPontos5:
-                terceiro = grupo3
-            else:
-                terceiro = grupo5
-            
-            # Verificando empates no terceiro lugar
-            if totalPontos1 == totalPontos3:
-                if tempo1 < tempo3:
-                    terceiro = grupo1
-                elif tempo3 < tempo1:
-                    terceiro = grupo3
-                else:
-                    if dificeis1 < dificeis3:
-                        terceiro = grupo1
-                    elif dificeis3 < dificeis1:
-                        terceiro = grupo3
-                    else:
-                        terceiro = grupo1  # ou grupo3, se preferir
-            
-            elif totalPontos1 == totalPontos5:
-                if tempo1 < tempo5:
-                    terceiro = grupo1
-                elif tempo5 < tempo1:
-                    terceiro = grupo5
-                else:
-                    if dificeis1 < dificeis5:
-                        terceiro = grupo1
-                    elif dificeis5 < dificeis1:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo1  # ou grupo5, se preferir
-            
-            elif totalPontos3 == totalPontos5:
-                if tempo3 < tempo5:
-                    terceiro = grupo3
-                elif tempo5 < tempo3:
-                    terceiro = grupo5
-                else:
-                    if dificeis3 < dificeis5:
-                        terceiro = grupo3
-                    elif dificeis5 < dificeis3:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo3  # ou grupo5, se preferir
-
-        elif primeiro == grupo3 and segundo == grupo4:
-            if totalPontos1 > totalPontos2 and totalPontos1 > totalPontos5:
-                terceiro = grupo1
-            elif totalPontos2 > totalPontos1 and totalPontos2 > totalPontos5:
-                terceiro = grupo2
-            else:
-                terceiro = grupo5
-            
-            # Verificando empates no terceiro lugar
-            if totalPontos1 == totalPontos2:
-                if tempo1 < tempo2:
-                    terceiro = grupo1
-                elif tempo2 < tempo1:
-                    terceiro = grupo2
-                else:
-                    if dificeis1 < dificeis2:
-                        terceiro = grupo1
-                    elif dificeis2 < dificeis1:
-                        terceiro = grupo2
-                    else:
-                        terceiro = grupo1  # ou grupo2, se preferir
-            
-            elif totalPontos1 == totalPontos5:
-                if tempo1 < tempo5:
-                    terceiro = grupo1
-                elif tempo5 < tempo1:
-                    terceiro = grupo5
-                else:
-                    if dificeis1 < dificeis5:
-                        terceiro = grupo1
-                    elif dificeis5 < dificeis1:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo1  # ou grupo5, se preferir
-            
-            elif totalPontos2 == totalPontos5:
-                if tempo2 < tempo5:
-                    terceiro = grupo2
-                elif tempo5 < tempo2:
-                    terceiro = grupo5
-                else:
-                    if dificeis2 < dificeis5:
-                        terceiro = grupo2
-                    elif dificeis5 < dificeis2:
-                        terceiro = grupo5
-                    else:
-                        terceiro = grupo2  # ou grupo5, se preferir
-
-        elif primeiro == grupo4 and segundo == grupo5:
-            if totalPontos1 > totalPontos2 and totalPontos1 > totalPontos3:
-                terceiro = grupo1
-            elif totalPontos2 > totalPontos1 and totalPontos2 > totalPontos3:
-                terceiro = grupo2
-            else:
-                terceiro = grupo3
-            
-            # Verificando empates no terceiro lugar
-            if totalPontos1 == totalPontos2:
-                if tempo1 < tempo2:
-                    terceiro = grupo1
-                elif tempo2 < tempo1:
-                    terceiro = grupo2
-                else:
-                    if dificeis1 < dificeis2:
-                        terceiro = grupo1
-                    elif dificeis2 < dificeis1:
-                        terceiro = grupo2
-                    else:
-                        terceiro = grupo1  # ou grupo2, se preferir
-            
-            elif totalPontos1 == totalPontos3:
-                if tempo1 < tempo3:
-                    terceiro = grupo1
-                elif tempo3 < tempo1:
-                    terceiro = grupo3
-                else:
-                    if dificeis1 < dificeis3:
-                        terceiro = grupo1
-                    elif dificeis3 < dificeis1:
-                        terceiro = grupo3
-                    else:
-                        terceiro = grupo1  # ou grupo3, se preferir
-            
-            elif totalPontos2 == totalPontos3:
-                if tempo2 < tempo3:
-                    terceiro = grupo2
-                elif tempo3 < tempo2:
-                    terceiro = grupo3
-                else:
-                    if dificeis2 < dificeis3:
-                        terceiro = grupo2
-                    elif dificeis3 < dificeis2:
-                        terceiro = grupo3
-                    else:
-                        terceiro = grupo2  # ou grupo3, se preferir
-
-            # Determinando o primeiro lugar
-        if totalPontos1 >= totalPontos2 and totalPontos1 >= totalPontos3 and totalPontos1 >= totalPontos4 and totalPontos1 >= totalPontos5:
-            primeiro = grupo1
-            totalPontosPrimeiro = totalPontos1
-            tempoPrimeiro = tempo1
-            dificiesPrimeiro = dificeis1
-            totalPontos2, totalPontos3, totalPontos4, totalPontos5 = totalPontos2, totalPontos3, totalPontos4, totalPontos5
-        elif totalPontos2 >= totalPontos1 and totalPontos2 >= totalPontos3 and totalPontos2 >= totalPontos4 and totalPontos2 >= totalPontos5:
-            primeiro = grupo2
-            totalPontosPrimeiro = totalPontos2
-            tempoPrimeiro = tempo2
-            dificiesPrimeiro = dificeis2
-            totalPontos1, totalPontos3, totalPontos4, totalPontos5 = totalPontos1, totalPontos3, totalPontos4, totalPontos5
-        elif totalPontos3 >= totalPontos1 and totalPontos3 >= totalPontos2 and totalPontos3 >= totalPontos4 and totalPontos3 >= totalPontos5:
-            primeiro = grupo3
-            totalPontosPrimeiro = totalPontos3
-            tempoPrimeiro = tempo3
-            dificiesPrimeiro = dificeis3
-            totalPontos1, totalPontos2, totalPontos4, totalPontos5 = totalPontos1, totalPontos2, totalPontos4, totalPontos5
-        elif totalPontos4 >= totalPontos1 and totalPontos4 >= totalPontos2 and totalPontos4 >= totalPontos3 and totalPontos4 >= totalPontos5:
-            primeiro = grupo4
-            totalPontosPrimeiro = totalPontos4
-            tempoPrimeiro = tempo4
-            dificiesPrimeiro = dificeis4
-            totalPontos1, totalPontos2, totalPontos3, totalPontos5 = totalPontos1, totalPontos2, totalPontos3, totalPontos5
-        else:
-            primeiro = grupo5
-            totalPontosPrimeiro = totalPontos5
-            tempoPrimeiro = tempo5
-            dificiesPrimeiro = dificeis5
-            totalPontos1, totalPontos2, totalPontos3, totalPontos4 = totalPontos1, totalPontos2, totalPontos3, totalPontos4
-
-        # Determinando o segundo lugar
-        if totalPontos1 >= totalPontos2 and totalPontos1 >= totalPontos3 and totalPontos1 >= totalPontos4:
-            segundo = grupo1
-            totalPontosSegundo = totalPontos1
-            tempoSegundo = tempo1
-            dificiesSegundo = dificeis1
-        elif totalPontos2 >= totalPontos1 and totalPontos2 >= totalPontos3 and totalPontos2 >= totalPontos4:
-            segundo = grupo2
-            totalPontosSegundo = totalPontos2
-            tempoSegundo = tempo2
-            dificiesSegundo = dificeis2
-        elif totalPontos3 >= totalPontos1 and totalPontos3 >= totalPontos2 and totalPontos3 >= totalPontos4:
-            segundo = grupo3
-            totalPontosSegundo = totalPontos3
-            tempoSegundo = tempo3
-            dificiesSegundo = dificeis3
-        else:
-            segundo = grupo4
-            totalPontosSegundo = totalPontos4
-            tempoSegundo = tempo4
-            dificiesSegundo = dificeis4
-
-        # Determinando o terceiro lugar
-        if totalPontos1 >= totalPontos2 and totalPontos1 >= totalPontos3:
-            terceiro = grupo1
-            totalPontosTerceiro = totalPontos1
-            tempoTerceiro = tempo1
-            dificiesTerceiro = dificeis1
-        elif totalPontos2 >= totalPontos1 and totalPontos2 >= totalPontos3:
-            terceiro = grupo2
-            totalPontosTerceiro = totalPontos2
-            tempoTerceiro = tempo2
-            dificiesTerceiro = dificeis2
-        else:
-            terceiro = grupo3
-            totalPontosTerceiro = totalPontos3
-            tempoTerceiro = tempo3
-            dificiesTerceiro = dificeis3
-
-        # Determinando o quarto lugar
-        if totalPontos1 >= totalPontos2 and totalPontos1 >= totalPontos3 and totalPontos1 >= totalPontos4:
-            quarto = grupo1
-            totalPontosQuarto = totalPontos1
-            tempoQuarto = tempo1
-            dificiesQuarto = dificeis1
-        elif totalPontos2 >= totalPontos1 and totalPontos2 >= totalPontos3 and totalPontos2 >= totalPontos4:
-            quarto = grupo2
-            totalPontosQuarto = totalPontos2
-            tempoQuarto = tempo2
-            dificiesQuarto = dificeis2
-        elif totalPontos3 >= totalPontos1 and totalPontos3 >= totalPontos2 and totalPontos3 >= totalPontos4:
-            quarto = grupo3
-            totalPontosQuarto = totalPontos3
-            tempoQuarto = tempo3
-            dificiesQuarto = dificeis3
-        else:
-            quarto = grupo4
-            totalPontosQuarto = totalPontos4
-            tempoQuarto = tempo4
-            dificiesQuarto = dificeis4
-
-        # Determinando o quinto lugar
-        if totalPontos1 >= totalPontos2 and totalPontos1 >= totalPontos3 and totalPontos1 >= totalPontos4 and totalPontos1 >= totalPontos5:
-            quinto = grupo1
-            totalPontosQuinto = totalPontos1
-            tempoQuinto = tempo1
-            dificiesQuinto = dificeis1
-        elif totalPontos2 >= totalPontos1 and totalPontos2 >= totalPontos3 and totalPontos2 >= totalPontos4 and totalPontos2 >= totalPontos5:
-            quinto = grupo2
-            totalPontosQuinto = totalPontos2
-            tempoQuinto = tempo2
-            dificiesQuinto = dificeis2
-        elif totalPontos3 >= totalPontos1 and totalPontos3 >= totalPontos2 and totalPontos3 >= totalPontos4 and totalPontos3 >= totalPontos5:
-            quinto = grupo3
-            totalPontosQuinto = totalPontos3
-            tempoQuinto = tempo3
-            dificiesQuinto = dificeis3
-        elif totalPontos4 >= totalPontos1 and totalPontos4 >= totalPontos2 and totalPontos4 >= totalPontos3 and totalPontos4 >= totalPontos5:
-            quinto = grupo4
-            totalPontosQuinto = totalPontos4
-            tempoQuinto = tempo4
-            dificiesQuinto = dificeis4
-        else:
-            quinto = grupo5
-            totalPontosQuinto = totalPontos5
-            tempoQuinto = tempo5
-            dificiesQuinto = dificeis5
-        os.system('cls')    
         # Calculando a média total de acertos
         mediaTotal = (totalPontos1 + totalPontos2 + totalPontos3 + totalPontos4 + totalPontos5) / 5
 
@@ -860,19 +254,21 @@ while menu != 6:
         print("                     RANKING GERAL                           ")
         print("--------------------------------------------------------------")
         # Exibindo o ranking com formatação e média total
-        print(f"1º - {primeiro:<12} | Pontos: {totalPontosPrimeiro:<4}")
-        print(f"2º - {segundo:<12} | Pontos: {totalPontosSegundo:<4}")
-        print(f"3º - {terceiro:<12} | Pontos: {totalPontosTerceiro:<4}")
-        print(f"4º - {quarto:<12} | Pontos: {totalPontosQuarto:<4}")
-        print(f"5º - {quinto:<12} | Pontos: {totalPontosQuinto:<4}")
+        print(f"1º - {primeiro:<12} | Pontos: {totalPontosPrimeiro:<4} | Tempo: {tempoPrimeiro:<4}")
+        print(f"2º - {segundo:<12} | Pontos: {totalPontosSegundo:<4} | Tempo: {tempoSegundo:<4}")
+        print(f"3º - {terceiro:<12} | Pontos: {totalPontosTerceiro:<4} | Tempo: {tempoTerceiro:<4}")
+        print(f"4º - {quarto:<12} | Pontos: {totalPontosQuarto:<4} | Tempo: {tempoQuarto:<4}")
+        print(f"5º - {quinto:<12} | Pontos: {totalPontosQuinto:<4} | Tempo: {tempoQuinto:<4}")
         print("-" * 40)
         print(f"Média Total de Pontos: {mediaTotal:.2f}")
+        print("-" * 40)
+        print(f"A equipe que que resolveu o maior número de problemas difíceis foi: {mediaTotal:.2f}")
         print("="*40)
+        input("Pressione Enter para voltar ao menu...")
 
-
-    elif menu == 5:
-        # Exibindo o detalhamento de cada equipe
-        os.system('cls')    
+#Exibindo as informações de cada equipe 
+elif menu == 5:
+        # Exibindo o detalhamento de cada equipe   
         print("--------------------------------------------------------------")
         print("              DETALHAMENTO DE PONTUAÇÃO DAS EQUIPES         ")
         print("--------------------------------------------------------------")
@@ -895,7 +291,8 @@ while menu != 6:
         print(f"| {grupo5:<12} | {totalPontos5:<15} | {faceis5:<15} | {medias5:<15} | {dificeis5:<20} | {tempo5:<25.2f} |")
 
         print("--------------------------------------------------------------")
+        input("Pressione Enter para voltar ao menu...")   
 
-
-    elif menu == 6:
-        print("Acabou caralho!")
+#Encerrando o código
+elif menu == 6:
+        print("Competição encerrada!")
