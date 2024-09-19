@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.14">
   <diagram name="Página-1" id="SJ8JCqSfgARfuGp7lzlv">
-    <mxGraphModel dx="4400" dy="2130" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1035" dy="501" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -742,6 +742,12 @@
               <mxPoint x="120" y="200" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="396UX3lL--zbIE0_4eES-28" value="grupo 1 e 2&lt;div style=&quot;font-size: 9px;&quot;&gt;grupo 2 e 3&lt;/div&gt;&lt;div style=&quot;font-size: 9px;&quot;&gt;grupo 3 e 4&lt;/div&gt;&lt;div style=&quot;font-size: 9px;&quot;&gt;grupo 4 e 5&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="782.5" y="732.5" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="396UX3lL--zbIE0_4eES-30" value="Compara e troca todos os 5" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="770" y="705" width="150" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
